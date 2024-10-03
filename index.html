@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <title>CLoSD: Closing the Loop</title>
+  <!-- Google tag (gtag.js) -->
+<!-- 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EWRYSDM25P');
+</script>
+ -->
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+  <link rel="icon" href="static/figures/icon2.png">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+    <section class="publication-header">
+        <div class="hero-body">
+            <div class="container is-max-widescreen">
+                <!-- <div class="columns is-centered"> -->
+                <div class="column has-text-centered">
+                    <h1 class="title is-2 publication-title">CLoSD<br>Closing the Loop between Simulation and<br> Diffusion for multi-task character control</h1>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="publication-author-block">
+
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <!--
+                    to anonimyze:
+                    1. remove author names (till "..indicates equal...")
+                    2. change link to video.
+                    3. remove bibtex reference.
+-->
+<!--                         <div class="column has-text-centered">
+                            <div class="is-size-4 publication-authors">
+                                <span class="author-block">[SIGGRAPH 2024]</span>
+                            </div>
+                        </div> -->
+
+                        <div class="column has-text-centered">
+                            <div class="is-size-5 publication-authors">
+                                <span class="author-block">
+                                    <a href="https://guytevet.github.io/" target="_blank">Guy Tevet</a><sup>1,2</sup>,
+                                    <a href="https://sigal-raab.github.io/" target="_blank">Sigal Raab</a><sup>1</sup>,
+                                    <a href="https://setarehc.github.io/" target="_blank">Setareh Cohan</a><sup>2</sup>,
+                                    <a href="https://rdednl.github.io/" target="_blank">Daniele Reda</a><sup>2</sup>,
+                                    <a href="https://zhengyiluo.github.io/" target="_blank">Zhengyi Luo</a><sup>3</sup>,
+                                    <br />
+                                    <a href="https://xbpeng.github.io/" target="_blank">Xue Bin Peng</a><sup>4,5</sup>,
+                                    <span class="author-block"><a href="https://www.cs.tau.ac.il/~amberman/" target="_blank">Amit H. Bermano</a><sup>1</sup></span>,
+                                    <a href="https://www.cs.ubc.ca/~van/" target="_blank">Michiel van de
+                                        Panne</a><sup>2</sup>
+                            </div>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Tel-Aviv University,</span>
+                            <span class="author-block"><sup>2</sup>University of British Columbia,</span>
+                            <br>
+                            <span class="author-block"><sup>3</sup>Carnegie Mellon University,</span>
+                            <span class="author-block"><sup>4</sup>Simon Fraser University,</span>
+                            <span class="author-block"><sup>5</sup>NVIDIA</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="" target="_blank"
+                   class="external-link button is-normal is-rounded">
+                                    <!-- <a href="paper.pdf" target="_blank"
+                                        class="external-link button is-normal is-rounded"> -->
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a href="https://github.com/GuyTevet/CLoSD" target="_blank"
+                                        class="external-link button is-normal is-rounded">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a href="https://youtu.be/sTA1Mmmkdq4?feature=shared" target="_blank"
+                                        class="external-link button is-normal is-rounded">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+
+                <div class="item">
+                    <p style="margin-bottom: 30px">
+<!--                        <span class="author-block">Single Motion Diffusion + Single Controller = Text-driven Multi-task Agent</span>
+                    <p style="margin-bottom: 30px"> -->
+                                <iframe width="720" height="405" src="https://www.youtube.com/embed/sTA1Mmmkdq4?si=-5nzRryN4yQWIkIn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </p>
+                </div>
+
+                <!-- <h2 class="title is-3">Abstract</h2> -->
+                <div class="content has-text-justified">
+                    <p>
+Motion diffusion models and Reinforcement Learning (RL) based control for physics-based simulations have complementary strengths for human motion generation. The former is capable of generating a wide variety of motions, adhering to intuitive control such as text, while the latter offers physically plausible motion and direct interaction with the environment. In this work, we present a method that combines their respective strengths. CLoSD is a text-driven RL physics-based controller, guided by diffusion generation for various tasks. Our key insight is that motion diffusion can serve as an on-the-fly universal planner for a robust RL controller. To this end, CLoSD maintains a closed-loop interaction between two modules — a Diffusion Planner (DiP), and a tracking controller. DiP is a fast-responding autoregressive diffusion model, controlled by textual prompts and target locations, and the controller is a simple and robust motion imitator that continuously receives motion plans from DiP and provides feedback from the environment. CLoSD is capable of seamlessly performing a sequence of different
+tasks, including navigation to a goal location, striking an object with a hand or foot as specified in a text prompt, sitting down, and getting up.
+                    </p>
+                </div>
+
+                <div class="column is-centered has-text-centered">
+
+
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-centered has-text-centered">
+      <h2 class="title is-3 is-centered has-text-centered">Text-driven Multi-task Agent</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay  muted loop height="100%">
+          <source src="static/figures/demo1.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay  muted height="100%">
+          <source src="static/figures/demo2.mp4"
+          type="video/mp4">
+      </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 is-centered has-text-centered">SMPL Compatible Physicaly-Simulated Motion</h2>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+          <p>
+CLoSD, generates text-controlled diverse and versatile motion for a SMPL-compatible robot which is interchangeable with the SMPL mesh.
+          </p>
+          
+        </div>
+	  </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="hero is-small">
+      <div class="has-text-centered">
+        <p style="margin-bottom: 20px"></p>
+        <video poster="" id="tree" autoplay  muted loop>
+          <source src="static/figures/t2m.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+</section>
+
+
+
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 is-centered has-text-centered">Many ways to perform the same task</h2>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+Specify it with the text prompt!
+By simply changing it, we can reach the target location with any desired type of locomotion.
+Target striking can also be controlled through the text prompt and corresponding targets which can be specified for both hands, a foot, or a wrist as seen in the examples below.
+And since a single instance of CLoSD can perform all the above, these tasks can be natively combined into a sequence.
+          </p>
+      </div>
+    </div>
+  </div>
+</section> 
+
+
+<section class="column hero is-small">
+      <div class="column has-text-centered">
+        <video poster="" id="tree" autoplay  muted loop width="1024">
+          <source src="static/figures/many_ways_reach.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <video poster="" id="tree" autoplay  muted loop width="1024">
+          <source src="static/figures/many_ways_strike.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+</section>
+
+
+
+
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+<!--         <h2 class="title is-3">How does it work?</h2> -->
+        <div class="item">
+         <h2 class="title is-3">The Method</h2>
+         <div class="content has-text-justified">
+          <p>
+Our key insight is that motion diffusion can generate plans in real time for a tracking controller, flexibly guiding it to various tasks.
+However, diffusion models are slow and unaware of the physical world.
+At the same time, tracking controllers are not trained for generation-related inaccuracies to overcome these challenges.
+</p>
+<p>
+We designed CLoSD which maintains closed-loop interaction between a real-time diffusion model and a robust tracking controller.
+Our real-time diffusion planner, DiP, rapidly generates short-term sequences according to the inputs and previous motion autoregressive.
+The tracking controller is an RL policy that consumes the DiP motion plan, frame by frame, and creates the actions to track it.
+After following the plan, we close the loop by feeding the frames performed in practice back into DiP as the new prefix. Depicted here is a sitting-down motion performed by CLoSD.
+Therefore, getting up from the sofa, for example, is as easy as changing the prompt and target.
+</p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/arch.jpg" alt="ComMDM" width="720"/>
+      </div>
+
+</div>
+</div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="item">
+        <h2 class="title is-3">The Planning - Execution Loop</h2>
+        <div class="content has-text-justified">
+          <p>
+Here, the blue markers depict the diffusion plan, and the orange character is the executed motion by the tracking controller.
+Note how the controller corrects micro artifacts of the diffusion planner in real time.
+          </div>
+          
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+      <div class="column is-centered has-text-centered">
+        <video poster="" id="tree" autoplay  muted loop width="720">
+          <source src="static/figures/reach_markers.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="item">
+        <h2 class="title is-3">Comparison to UniHSI</h2>
+        <div class="content has-text-justified">
+          <p>
+We compare our work with UniHSI [Xiao 2024], which is a state-of-the-art multi-task controller.
+UniHSI models their controller by reaching a sequence of contact
+points. Without a semantic description of the task, UniHSI touches the target instead of striking it
+and bending the pelvis instead of getting up.
+The semantic understanding of our diffusion model enables performing these tasks correctly.
+          </div>
+          
+        </div>
+	  </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="hero is-small">
+      <div class="column is-centered has-text-centered">
+        <video poster="" id="tree" autoplay  muted loop width="1024">
+          <source src="static/figures/compare.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Baselines</h2>
+        <div class="content has-text-justified">
+          <p>
+We compare CLoSD to two baselines: an open loop without re-planning or feedback, and a closed loop without fine-tuning the components to communicate with each other.
+As can be seen, only the full CLoSD system with semantic planning and object interaction reasoning produces natural human motion for sitting down and getting up.
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+
+
+<section class="hero is-small">
+      <div class="column is-centered has-text-centered">
+        <video poster="" id="tree" autoplay  muted loop width="1024">
+          <source src="static/figures/baselines.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+</section>
+
+
+
+<!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+@inproceedings{shafir2024human,
+  title={Human Motion Diffusion as a Generative Prior},
+  author={Shafir, Yoni and Tevet, Guy and Kapon, Roy and Bermano, Amit Haim},
+  year={2024},
+  booktitle={The Twelfth International Conference on Learning Representations}
+}
+</code></pre>
+    </div>
+</section> -->
+
+
+
+<footer class="footer">
+ <!--  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+      href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <i class="fab fa-github"></i>
+    </a>
+  </div> -->
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+
+  <script type="text/javascript">
+    var sc_project=12351448; 
+    var sc_invisible=1; 
+    var sc_security="c676de4f"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12351448/0/c676de4f/1/"
+    alt="Web Analytics"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
